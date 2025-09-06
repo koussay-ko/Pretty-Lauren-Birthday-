@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bg: #2E3B2B; /* forest greenish */
+    --color-accent: #7B6B4F; /* dull brown */
+    --color-white: #fff;
+    --color-black: #333;
+    --color-text-accent: #A88F6F;
+    --color-heart: #A88F6F;
+    --color-bg-letter: #F5F1E7;
+    --color-border: #7B6B4F;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, var(--color-bg), var(--color-accent));
+}
+
+#wrapper{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Flags */
+.flag__birthday{
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-200px);
+    animation: translateYFlag 1.5s 2s forwards;
+}
+@keyframes translateYFlag{
+    to{ transform: translateY(-10px);}
+}
+.flag__birthday .flag__left{
+    transform: rotate(-10deg) translate(-20px,30px);
+}
+.flag__birthday .flag__right{
+    transform: rotate(10deg) translate(20px,30px) scaleX(-1);
+}
+
+/* Content */
+.content{
+    width: 100%;
+    display: flex;
+    padding-top: 3rem;
+}
+.content .left, .content .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content .left{ width: 40%; }
+.content .right{ width: 60%; }
+
+/* Button */
+#btn__letter{
+    margin-top: 30px;
+    background-color: var(--color-text-accent);
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 3px solid var(--color-black);
+    font-family: "Sriracha", cursive;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#btn__letter:hover{
+    background-color: var(--color-heart);
+    border-color: var(--color-heart);
+    color: #fff;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+
+/* Title */
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Titan One", sans-serif;
+    font-size: 3rem;
+    color: var(--color-white);
+    text-align: center;
+}
+.title .happy, .title .birthday{
+    text-shadow: 2px 2px var(--color-black);
+}
+.title .birthday{ color: var(--color-text-accent); }
+.title .hat img{ width: 130px; }
+
+/* Date and Name */
+.date__of__birth, .name{
+    margin-top: 20px;
+    border-radius: 50px;
+    background-color: var(--color-text-accent);
+    border: 3px solid var(--color-black);
+    padding: 8px 16px;
+    text-align: center;
+    color: var(--color-white);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+}
+
+/* Right side image */
+.content .right .image{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid var(--color-black);
+}
+.content .right .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Decorations */
+.decorate_star, .decorate_flower--one, .decorate_flower--two, .decorate_flower--three{
+    position: absolute;
+    transform: scale(0);
+    animation: scaleCricle 3s forwards ease-in-out;
+}
+@keyframes scaleCricle {
+    0%{transform: scale(0);}
+    10%{transform: scale(1.3);}
+    20%{transform: scale(0.7);}
+    30%,100%{transform: scale(1);}
+}
+
+/* Circle text animation */
+.cricle .text__cricle span{
+    color: var(--color-black);
+    font-family: "Sriracha", cursive;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Heart animations */
+.fa-heart{
+    color: var(--color-heart);
+    filter: drop-shadow(0 0 3px var(--color-heart));
+    animation: scaleHeart 1s infinite linear;
+}
+@keyframes scaleHeart{
+    50%{transform: scale(1.2);}
+}
+
+/* Responsive */
+@media screen and (max-width: 658px){
+    .content{ flex-direction: column; gap: 20px; padding-top: 2rem; }
+    .title{ font-size: 1.5rem; }
+    .content .right .image{ width: 200px; height: 200px; border: 4px solid var(--color-black); }
+    #btn__letter{ width: 200px; }
+}
